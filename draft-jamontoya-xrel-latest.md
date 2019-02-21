@@ -83,9 +83,9 @@ Representational State Transfer, or **REST**, is an architectural style for dist
 
 **Hypermedia** is defined by the presence of application control information embedded within, or as a layer above, the presentation of information.
 
-A **hypermedia relationship**, also known as hyperlink or simply link, is a virtual uni-directional association between two resources. Hyperlinks allow authors for a virtually unbound network of resources while also guiding users through an application as they navigate said links.
+A **hypermedia relationship**, also known as a link relation, describes the semantics behind a virtual uni-directional association between two resources. Hypermedia relationships allow for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.
 
-A **hypermedia relationship name**, also known as link relation or link relation type, is an identifier of the semantics of the relationship of a target resource to the context resource.
+A **hypermedia relationship name** is an identifier for a hypermedia relationship.
 
 A **resource** is the intended conceptual target of a hypertext reference.
 
@@ -103,7 +103,7 @@ Throughout this specification, **markdown** means [GitHub-Flavored Markdown](#gi
 
 ## Motivation
 
-The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the activation of those relationships' controls by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names or identifiers.
+The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.
 
 While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of de jure standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. `patient`, `appointment`, `schedulingService`, etc.) with a central repository, authors can create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.
 
@@ -142,12 +142,12 @@ The first line of a XREL document MUST begin with the text `#%XREL 1.0` followed
 ~~~ yaml
 #%XREL 1.0
 
-description: Refers to an appointment scheduling service resource related to the context resource.
+description: Refers to an event scheduling service resource related to the context resource.
 ~~~
 
 ## XREL Collection Document
 
-Defines a map where the keys are the document scoped relationship name and the values are Relationship Objects. XREL Collections can be used to combine any collection of relation objects.
+Defines a map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to combine any collection of relation objects.
 
 The first line of a collection document MUST begin with the text `#%XREL 1.0 Collection` followed by nothing but the end of the line.
 
@@ -157,7 +157,7 @@ The first line of a collection document MUST begin with the text `#%XREL 1.0 Col
 #%XREL 1.0 Collection
 
 schedulingService:
-  description: Refers to an appointment scheduling service resource related to the context resource.
+  description: Refers to an event scheduling service resource related to the context resource.
 patient:
   description: Refers to a patient resource related to the context resource.
 ~~~
@@ -166,7 +166,7 @@ patient:
 
 XREL documents are identified by unique URLs, this URL SHOULD be dereferenceable.
 
-In order to reduce load on servers responding to XREL document requests, it is RECOMMENDED that servers use cache control directives that instruct client apps to locally cache the results. Clients making these Profile document requests SHOULD honor the server's caching directives.
+In order to reduce load on servers responding to XREL document requests, it is RECOMMENDED that servers use cache control directives that instruct client apps to locally cache the results. Clients making these XREL document requests SHOULD honor the server's caching directives.
 
 ## Fragment identifiers
 
@@ -245,6 +245,6 @@ The issues list for this draft can be found at <https://github.com/phtal-org/int
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.
 
 ## Why not include target attributes as defined by RFC8288 'Web Linking'?
-Link relations are universal; they are independent of the representation format in which they might be found or the representation format supported by resource they target. It is the responsibility of media type and application authors to communicate to their clients what data types are necessary to navigate a link and/or might be expected as a result, also known as typed link relations.
+Link relations are universal; they associate resources (concepts) and not representations, ie. independent of the representation format in which they might be found or the representation format supported by resource they target. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a link and/or might be expected as a result, also known as typed link relations.
 
-This level of abstraction has value because it's easier to standardize representation (eg. RAML data type declarations) and link relations than it is to standardize objects and object-specific interfaces. Servers are free to combine representations and relation names (ie. typify link relations) in any way they wish while remaining understandable to the client.
+This level of abstraction has value because it's easier to standardize representation (eg. HTML Microformats, or RAML data types) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to combine representations and link relations (ie. typify link relations) in any way they wish and provide them in any order while remaining understandable to the client.
