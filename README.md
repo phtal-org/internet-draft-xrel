@@ -2,9 +2,9 @@
 
 This is the working area for the individual Internet-Draft, "Extended Link Relationships".
 
-* [Editor's Copy](https://phtal-org.github.io/internet-draft-xrel/#go.draft-jamontoya-xrel-latest.html)
-* [Individual Draft](https://tools.ietf.org/html/draft-jamontoya-xrel-latest)
-* [Compare Editor's Copy to Individual Draft](https://phtal-org.github.io/internet-draft-xrel/#go.draft-jamontoya-xrel-latest.diff)
+* [Editor's Copy](https://phtal-org.github.io/internet-draft-xrel/#go.draft-montoya-xrel-latest.html)
+* [Individual Draft](https://tools.ietf.org/html/draft-montoya-xrel-latest)
+* [Compare Editor's Copy to Individual Draft](https://phtal-org.github.io/internet-draft-xrel/#go.draft-montoya-xrel-latest.diff)
 
 ## Building the Draft
 

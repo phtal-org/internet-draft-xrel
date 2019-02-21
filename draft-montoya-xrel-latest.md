@@ -1,7 +1,7 @@
 ---
 title: Extended Link Relationships
 abbrev: xrel
-docname: draft-jmontoya-xrel-latest
+docname: draft-montoya-xrel-latest
 
 keyword: Internet-Draft
 category: info
