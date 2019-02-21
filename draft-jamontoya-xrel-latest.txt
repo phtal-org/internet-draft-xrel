@@ -439,9 +439,9 @@ Internet-Draft                    xrel                     February 2019
 5.2.  Why not include target attributes as defined by RFC8288 'Web
       Linking'?
 
-   Link relations are universal; they associate resources (concepts) and
-   not representations, ie. independent of the representation format in
-   which they might be found or the representation format supported by
+   Link relations are universal, they associate conceptual targets and
+   not representations types.  It is the responsibility of the
+   application authors to communicate to their clients what data types
 
 
 
@@ -450,18 +450,15 @@ Montoya                  Expires August 25, 2019                [Page 8]
 Internet-Draft                    xrel                     February 2019
 
 
-   resource they target.  It is the responsibility of the application
-   authors to communicate to their clients what data types are necessary
-   to navigate a link and/or might be expected as a result, also known
-   as typed link relations.
+   are necessary to navigate a relationship and/or the data types that
+   might be expected as a result, also known as typed link relations.
 
    This level of abstraction has value because it's easier to
-   standardize representation (eg.  HTML Microformats, or RAML data
-   types) and link relations than it is to standardize objects and
-   object-specific interfaces.  Application servers are free to combine
-   representations and link relations (ie. typify link relations) in any
-   way they wish and provide them in any order while remaining
-   understandable to the client.
+   standardize representation (HTML Microformats, RAML data types, etc.)
+   and link relations than it is to standardize objects and object-
+   specific interfaces.  Application servers are free to typify link
+   relations in any way they wish and provide them in any order while
+   remaining understandable to the client.
 
 6.  References
 
@@ -498,6 +495,9 @@ Internet-Draft                    xrel                     February 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+   [W3C.yaml]
+              Ben Kiki, O, ., Evans, C, ., and I. Net, "YAML Aint Markup
+              Language", 2009, <http://www.yaml.org/spec/1.2/spec.html>.
 
 
 
@@ -505,10 +505,6 @@ Montoya                  Expires August 25, 2019                [Page 9]
 
 Internet-Draft                    xrel                     February 2019
 
-
-   [W3C.yaml]
-              Ben Kiki, O, ., Evans, C, ., and I. Net, "YAML Aint Markup
-              Language", 2009, <http://www.yaml.org/spec/1.2/spec.html>.
 
 6.2.  Informative References
 
@@ -542,6 +538,10 @@ Author's Address
    Mountain State Software Solutions
 
    Email: jmontoya@ms3-inc.com
+
+
+
+
 
 
 
