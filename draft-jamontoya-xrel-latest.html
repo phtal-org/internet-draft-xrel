@@ -299,14 +299,14 @@ ul.toc li {
 <link href="#rfc.section.2.6" rel="Chapter" title="2.6 Fragment identifiers">
 <link href="#rfc.section.2.7" rel="Chapter" title="2.7 Identifying XREL Relationships">
 <link href="#rfc.section.3" rel="Chapter" title="3 IANA Considerations">
-<link href="#rfc.section.4" rel="Chapter" title="4 application/xrel">
-<link href="#rfc.section.5" rel="Chapter" title="5 Appendix A. Acknowledgments">
-<link href="#rfc.section.6" rel="Chapter" title="6 Appendix B. Frequently Asked Questions">
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 How can I submit comments or feedback to the editors?">
-<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?">
-<link href="#rfc.references" rel="Chapter" title="7 References">
-<link href="#rfc.references.1" rel="Chapter" title="7.1 Normative References">
-<link href="#rfc.references.2" rel="Chapter" title="7.2 Informative References">
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 application/xrel">
+<link href="#rfc.section.4" rel="Chapter" title="4 Appendix A. Acknowledgments">
+<link href="#rfc.section.5" rel="Chapter" title="5 Appendix B. Frequently Asked Questions">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 How can I submit comments or feedback to the editors?">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?">
+<link href="#rfc.references" rel="Chapter" title="6 References">
+<link href="#rfc.references.1" rel="Chapter" title="6.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="6.2 Informative References">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -402,21 +402,21 @@ ul.toc li {
 </li>
 </ul><li>3.   <a href="#rfc.section.3">IANA Considerations</a>
 </li>
-<li>4.   <a href="#rfc.section.4">application/xrel</a>
+<ul><li>3.1.   <a href="#rfc.section.3.1">application/xrel</a>
 </li>
-<li>5.   <a href="#rfc.section.5">Appendix A. Acknowledgments</a>
+</ul><li>4.   <a href="#rfc.section.4">Appendix A. Acknowledgments</a>
 </li>
-<li>6.   <a href="#rfc.section.6">Appendix B. Frequently Asked Questions</a>
+<li>5.   <a href="#rfc.section.5">Appendix B. Frequently Asked Questions</a>
 </li>
-<ul><li>6.1.   <a href="#rfc.section.6.1">How can I submit comments or feedback to the editors?</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">How can I submit comments or feedback to the editors?</a>
 </li>
-<li>6.2.   <a href="#rfc.section.6.2">Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?</a>
+<li>5.2.   <a href="#rfc.section.5.2">Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?</a>
 </li>
-</ul><li>7.   <a href="#rfc.references">References</a>
+</ul><li>6.   <a href="#rfc.references">References</a>
 </li>
-<ul><li>7.1.   <a href="#rfc.references.1">Normative References</a>
+<ul><li>6.1.   <a href="#rfc.references.1">Normative References</a>
 </li>
-<li>7.2.   <a href="#rfc.references.2">Informative References</a>
+<li>6.2.   <a href="#rfc.references.2">Informative References</a>
 </li>
 </ul><li><a href="#rfc.authors">Author's Address</a>
 </li>
@@ -441,12 +441,12 @@ ul.toc li {
 </h1>
 <p id="rfc.section.1.1.2.p.1">Representational State Transfer, or <strong>REST</strong>, is an architectural style for distributed hypermedia systems. Introduced and first defined in 2000 in Chapter 5, REST, of the doctoral dissertation &#8220;Architectural Styles and the Design of Network-based Software Architecture&#8221; by Roy Fielding.</p>
 <p><strong>Hypermedia</strong> is defined by the presence of application control information embedded within, or as a layer above, the presentation of information.</p>
-<p id="rfc.section.1.1.2.p.3">A <strong>hypermedia relationship</strong>, also known as hyperlink or simply link, is a virtual uni-directional association between two resources. Hyperlinks allow authors for a virtually unbound network of resources while also guiding users through an application as they navigate said links.</p>
-<p id="rfc.section.1.1.2.p.4">A <strong>hypermedia relationship name</strong>, also known as link relation or link relation type, is an identifier of the semantics of the relationship of a target resource to the context resource.</p>
+<p id="rfc.section.1.1.2.p.3">A <strong>hypermedia relationship</strong>, also known as a link relation, describes the semantics behind a virtual uni-directional association between two resources. Hypermedia relationships allow for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.</p>
+<p id="rfc.section.1.1.2.p.4">A <strong>hypermedia relationship name</strong> is an identifier for a hypermedia relationship.</p>
 <p id="rfc.section.1.1.2.p.5">A <strong>resource</strong> is the intended conceptual target of a hypertext reference.</p>
 <p><strong>Representational state</strong> indicates the current state of the requested resource, the desired state for the requested resource, or the value of some other resource, such as a representation of the input data within a client&#8217;s query form, or a representation of some error condition for a response.</p>
 <p><strong>Application state</strong> is the state of the user&#8217;s application of computing to a given task, controlled and stored by the user agent and can be composed of representations from multiple servers.</p>
-<p id="rfc.section.1.1.2.p.8">This document and the specification documented in it are heavily influenced by the <a href="#RAML" class="xref">RAML Spec 1.0</a>.</p>
+<p id="rfc.section.1.1.2.p.8">This document and the specification documented in it are heavily influenced by the <a href="#RAML" class="xref">RAML 1.0 Spec</a>.</p>
 <h1 id="rfc.section.1.1.3">
 <a href="#rfc.section.1.1.3">1.1.3.</a> <a href="#documents-description" id="documents-description">Documents description</a>
 </h1>
@@ -455,9 +455,9 @@ ul.toc li {
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#motivation" id="motivation">Motivation</a>
 </h1>
-<p id="rfc.section.1.2.p.1">The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the activation of those relationships&#8217; controls by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationship names or identifiers.</p>
+<p id="rfc.section.1.2.p.1">The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.</p>
 <p id="rfc.section.1.2.p.2">While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of de jure standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. <samp>patient</samp>, <samp>appointment</samp>, <samp>schedulingService</samp>, etc.) with a central repository, authors can create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.</p>
-<p id="rfc.section.1.2.p.3">This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.</p>
+<p id="rfc.section.1.2.p.3">This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example, a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely, public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.</p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> <a href="#xrel-documents" id="xrel-documents">XREL Documents</a>
 </h1>
@@ -500,12 +500,12 @@ ul.toc li {
 <pre>
 #%XREL 1.0
 
-description: Refers to an appointment scheduling service resource related to the context resource.
+description: Refers to an event scheduling service resource related to the context resource.
 </pre>
 <h1 id="rfc.section.2.4">
 <a href="#rfc.section.2.4">2.4.</a> <a href="#xrel-collection-document" id="xrel-collection-document">XREL Collection Document</a>
 </h1>
-<p id="rfc.section.2.4.p.1">Defines a map where the keys are the document scoped relationship name and the values are Relationship Objects. XREL Collections can be used to combine any collection of relation objects.</p>
+<p id="rfc.section.2.4.p.1">Defines a map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to combine any collection of relation objects.</p>
 <p id="rfc.section.2.4.p.2">The first line of a collection document MUST begin with the text <samp>#%XREL 1.0 Collection</samp> followed by nothing but the end of the line.</p>
 <h1 id="rfc.section.2.4.1">
 <a href="#rfc.section.2.4.1">2.4.1.</a> <a href="#document-example-1" id="document-example-1">Document Example</a>
@@ -514,7 +514,7 @@ description: Refers to an appointment scheduling service resource related to the
 #%XREL 1.0 Collection
 
 schedulingService:
-  description: Refers to an appointment scheduling service resource related to the context resource.
+  description: Refers to an event scheduling service resource related to the context resource.
 patient:
   description: Refers to a patient resource related to the context resource.
 </pre>
@@ -522,7 +522,7 @@ patient:
 <a href="#rfc.section.2.5">2.5.</a> <a href="#identifying-xrel-documents" id="identifying-xrel-documents">Identifying XREL Documents</a>
 </h1>
 <p id="rfc.section.2.5.p.1">XREL documents are identified by unique URLs, this URL SHOULD be dereferenceable.</p>
-<p id="rfc.section.2.5.p.2">In order to reduce load on servers responding to XREL document requests, it is RECOMMENDED that servers use cache control directives that instruct client apps to locally cache the results. Clients making these Profile document requests SHOULD honor the server&#8217;s caching directives.</p>
+<p id="rfc.section.2.5.p.2">In order to reduce load on servers responding to XREL document requests, it is RECOMMENDED that servers use cache control directives that instruct client apps to locally cache the results. Clients making these XREL document requests SHOULD honor the server&#8217;s caching directives.</p>
 <h1 id="rfc.section.2.6">
 <a href="#rfc.section.2.6">2.6.</a> <a href="#fragment-identifiers" id="fragment-identifiers">Fragment identifiers</a>
 </h1>
@@ -536,8 +536,8 @@ patient:
 <a href="#rfc.section.3">3.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
 <p id="rfc.section.3.p.1">This specification establishes the media type <samp>application/xrel</samp> for community review and will be submitted to the IESG for review, approval, and registration with IANA.</p>
-<h1 id="rfc.section.4">
-<a href="#rfc.section.4">4.</a> <a href="#applicationxrel" id="applicationxrel">application/xrel</a>
+<h1 id="rfc.section.3.1">
+<a href="#rfc.section.3.1">3.1.</a> <a href="#applicationxrel" id="applicationxrel">application/xrel</a>
 </h1>
 <p><strong>Type name:</strong> application</p>
 <p><strong>Subtype name:</strong> xrel</p>
@@ -591,26 +591,27 @@ patient:
 <strong>Email:</strong> jmontoya@ms3-inc.com</li></ul>
 <p><strong>Intended usage:</strong> Common</p>
 <p><strong>Author/change controller:</strong> Jose Montoya</p>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> <a href="#appendix-a-acknowledgments" id="appendix-a-acknowledgments">Appendix A. Acknowledgments</a>
+</h1>
+<p id="rfc.section.4.p.1">Many thanks to Mike Amundsen, Jeff Michaud, Eric Wilde and Darrel Miller for their contributions in this space, even if not directly related to XREL documents.</p>
 <h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#appendix-a-acknowledgments" id="appendix-a-acknowledgments">Appendix A. Acknowledgments</a>
+<a href="#rfc.section.5">5.</a> <a href="#appendix-b-frequently-asked-questions" id="appendix-b-frequently-asked-questions">Appendix B. Frequently Asked Questions</a>
 </h1>
-<p id="rfc.section.5.p.1">Many thanks to Mike Amundsen, Jeff Michaud, Eric Wilde and Darrel Miller for their contributions in this space, even if not directly related to XREL documents.</p>
-<h1 id="rfc.section.6">
-<a href="#rfc.section.6">6.</a> <a href="#appendix-b-frequently-asked-questions" id="appendix-b-frequently-asked-questions">Appendix B. Frequently Asked Questions</a>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#how-can-i-submit-comments-or-feedback-to-the-editors" id="how-can-i-submit-comments-or-feedback-to-the-editors">How can I submit comments or feedback to the editors?</a>
 </h1>
-<h1 id="rfc.section.6.1">
-<a href="#rfc.section.6.1">6.1.</a> <a href="#how-can-i-submit-comments-or-feedback-to-the-editors" id="how-can-i-submit-comments-or-feedback-to-the-editors">How can I submit comments or feedback to the editors?</a>
+<p id="rfc.section.5.1.p.1">The issues list for this draft can be found at <a href="https://github.com/phtal-org/internet-draft-xrel/issues">https://github.com/phtal-org/internet-draft-xrel/issues</a>. For additional information, see <a href="https://phtal-org.github.io/internet-draft-xrel/">https://phtal-org.github.io/internet-draft-xrel/</a>.</p>
+<p id="rfc.section.5.1.p.2">To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.</p>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#why-not-include-target-attributes-as-defined-by-rfc8288-web-linking" id="why-not-include-target-attributes-as-defined-by-rfc8288-web-linking">Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?</a>
 </h1>
-<p id="rfc.section.6.1.p.1">The issues list for this draft can be found at <a href="https://github.com/phtal-org/internet-draft-xrel/issues">https://github.com/phtal-org/internet-draft-xrel/issues</a>. For additional information, see <a href="https://phtal-org.github.io/internet-draft-xrel/">https://phtal-org.github.io/internet-draft-xrel/</a>.</p>
-<p id="rfc.section.6.1.p.2">To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.</p>
-<h1 id="rfc.section.6.2">
-<a href="#rfc.section.6.2">6.2.</a> <a href="#why-not-include-target-attributes-as-defined-by-rfc8288-web-linking" id="why-not-include-target-attributes-as-defined-by-rfc8288-web-linking">Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?</a>
-</h1>
-<p id="rfc.section.6.2.p.1">Link relations are universal, independent of the format in which they are found or the representation format of the resource they target. It is the responsibility of media type and application authors to define what data types can be expected as part of navigating a particular link.</p>
+<p id="rfc.section.5.2.p.1">Link relations are universal; they associate resources (concepts) and not representations, ie. independent of the representation format in which they might be found or the representation format supported by resource they target. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a link and/or might be expected as a result, also known as typed link relations.</p>
+<p id="rfc.section.5.2.p.2">This level of abstraction has value because it&#8217;s easier to standardize representation (eg. HTML Microformats, or RAML data types) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to combine representations and link relations (ie. typify link relations) in any way they wish and provide them in any order while remaining understandable to the client.</p>
 <h1 id="rfc.references">
-<a href="#rfc.references">7.</a> References</h1>
+<a href="#rfc.references">6.</a> References</h1>
 <h1 id="rfc.references.1">
-<a href="#rfc.references.1">7.1.</a> Normative References</h1>
+<a href="#rfc.references.1">6.1.</a> Normative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="github.md">[github.md]</b></td>
@@ -654,7 +655,7 @@ patient:
 </tr>
 </tbody></table>
 <h1 id="rfc.references.2">
-<a href="#rfc.references.2">7.2.</a> Informative References</h1>
+<a href="#rfc.references.2">6.2.</a> Informative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="RAML">[RAML]</b></td>
