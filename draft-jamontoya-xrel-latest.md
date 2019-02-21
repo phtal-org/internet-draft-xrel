@@ -245,4 +245,6 @@ The issues list for this draft can be found at <https://github.com/phtal-org/int
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.
 
 ## Why not include target attributes as defined by RFC8288 'Web Linking'?
-Link relations are universal, independent of the format in which they are found or the representation format of the resource they target. It is the responsibility of media type and application authors to define what data types can be expected as part of navigating a particular link.
+Link relations are universal; they are independent of the representation format in which they might be found or the representation format supported by resource they target. It is the responsibility of media type and application authors to communicate to their clients what data types are necessary to navigate a link and/or might be expected as a result, also known as typed link relations.
+
+This level of abstraction has value because it's easier to standardize representation (eg. RAML data type declarations) and relationship names than it is to standardize objects and object-specific interfaces. Servers are free to combine representations and relation names (ie. typify link relations) in any way they wish while remaining understandable to the client.
