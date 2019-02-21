@@ -93,7 +93,7 @@ A **resource** is the intended conceptual target of a hypertext reference.
 
 **Application state** is the state of the user’s application of computing to a given task, controlled and stored by the user agent and can be composed of representations from multiple servers.
 
-This document and the specification documented in it are heavily influenced by the [RAML Spec 1.0](#RAML).
+This document and the specification documented in it are heavily influenced by the [RAML 1.0 Spec](#RAML).
 
 ### Documents description
 
@@ -103,11 +103,11 @@ Throughout this specification, **markdown** means [GitHub-Flavored Markdown](#gi
 
 ## Motivation
 
-The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the activation of those relationships' controls by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationship names or identifiers.
+The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the activation of those relationships' controls by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names or identifiers.
 
 While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of de jure standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. `patient`, `appointment`, `schedulingService`, etc.) with a central repository, authors can create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.
 
-This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.
+This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example, a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely, public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.
 
 # XREL Documents
 
@@ -182,7 +182,7 @@ In the case of XREL Collection Documents as specified in Section 2.4, fragment i
 
 This specification establishes the media type `application/xrel` for community review and will be submitted to the IESG for review, approval, and registration with IANA.
 
-# application/xrel
+## application/xrel
 
 **Type name:** application
 
