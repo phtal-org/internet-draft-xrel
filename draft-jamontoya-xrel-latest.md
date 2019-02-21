@@ -240,7 +240,7 @@ Many thanks to Mike Amundsen, Jeff Michaud, Eric Wilde and Darrel Miller for the
 
 ## How can I submit comments or feedback to the editors?
 
-The issues list for this draft can be found at <https://github.com/phtal-org/internet-draft-xrel/issues>. For additional information, see <http://www.phtal.org/>.
+The issues list for this draft can be found at <https://github.com/phtal-org/internet-draft-xrel/issues>. For additional information, see <https://phtal-org.github.io/internet-draft-xrel/>.
 
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.
 
