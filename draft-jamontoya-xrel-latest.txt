@@ -430,7 +430,8 @@ Internet-Draft                    xrel                     February 2019
 
    The issues list for this draft can be found at https://github.com/
    phtal-org/internet-draft-xrel/issues [3].  For additional
-   information, see http://www.phtal.org/ [4].
+   information, see https://phtal-org.github.io/internet-draft-xrel/
+   [4].
 
    To provide feedback, use this issue tracker, the communication
    methods listed on the homepage, or email the document editors.
@@ -441,7 +442,6 @@ Internet-Draft                    xrel                     February 2019
    Link relations are universal, independent of the format in which they
    are found or the representation format of the resource they target.
    It is the responsibility of media type and application authors to
-
 
 
 
@@ -524,7 +524,7 @@ Internet-Draft                    xrel                     February 2019
 
    [3] https://github.com/phtal-org/internet-draft-xrel/issues
 
-   [4] http://www.phtal.org/
+   [4] https://phtal-org.github.io/internet-draft-xrel/
 
 Author's Address
 
