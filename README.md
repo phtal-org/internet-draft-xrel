@@ -1,6 +1,6 @@
-# Extension Link Relation Type
+# Extended Link Relationships
 
-This is the working area for the individual Internet-Draft, "Extension Link Relation Type".
+This is the working area for the individual Internet-Draft, "Extended Link Relationships".
 
 * [Editor's Copy](https://phtal-org.github.io/internet-draft-xrel/#go.draft-jamontoya-xrel-latest.html)
 * [Individual Draft](https://tools.ietf.org/html/draft-jamontoya-xrel-latest)
