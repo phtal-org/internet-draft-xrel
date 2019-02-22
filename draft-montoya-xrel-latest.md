@@ -53,6 +53,15 @@ informative:
       "Ph.D.": "Dissertation, University of California, Irvine"
     format:
       PDF: http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf
+  untangled:
+    target: http://roy.gbiv.com/untangled/
+    title: Untangled, musings of Roy T. Fielding
+    author:
+      ins: R. Fielding
+      name: Roy Thomas Fielding
+  yahoo.rest:
+    target: https://groups.yahoo.com/neo/groups/rest-discuss/info
+    title: The REST Architectural Style List
   RAML:
     title: RAML Specification
     target: https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md
