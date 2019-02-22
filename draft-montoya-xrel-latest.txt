@@ -4,8 +4,8 @@
 
 Network Working Group                                         J. Montoya
 Internet-Draft                         Mountain State Software Solutions
-Intended status: Informational                         February 21, 2019
-Expires: August 25, 2019
+Intended status: Informational                         February 22, 2019
+Expires: August 26, 2019
 
 
                       Extended Link Relationships
@@ -31,7 +31,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 25, 2019.
+   This Internet-Draft will expire on August 26, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Montoya                  Expires August 25, 2019                [Page 1]
+Montoya                  Expires August 26, 2019                [Page 1]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Montoya                  Expires August 25, 2019                [Page 2]
+Montoya                  Expires August 26, 2019                [Page 2]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -165,7 +165,7 @@ Internet-Draft                    xrel                     February 2019
 
 
 
-Montoya                  Expires August 25, 2019                [Page 3]
+Montoya                  Expires August 26, 2019                [Page 3]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -221,7 +221,7 @@ Internet-Draft                    xrel                     February 2019
 
 
 
-Montoya                  Expires August 25, 2019                [Page 4]
+Montoya                  Expires August 26, 2019                [Page 4]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -277,7 +277,7 @@ description: Refers to an event scheduling service resource related to the conte
 
 
 
-Montoya                  Expires August 25, 2019                [Page 5]
+Montoya                  Expires August 26, 2019                [Page 5]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -286,7 +286,7 @@ Internet-Draft                    xrel                     February 2019
 
    Defines a map where the keys are the document scoped relationship
    names and the values are Relationship Objects.  XREL Collections can
-   be used to combine any collection of relation objects.
+   be used to combine any collection of Relationship Objects.
 
    The first line of a collection document MUST begin with the text
    "#%XREL 1.0 Collection" followed by nothing but the end of the line.
@@ -333,7 +333,7 @@ patient:
 
 
 
-Montoya                  Expires August 25, 2019                [Page 6]
+Montoya                  Expires August 26, 2019                [Page 6]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -389,7 +389,7 @@ Internet-Draft                    xrel                     February 2019
 
 
 
-Montoya                  Expires August 25, 2019                [Page 7]
+Montoya                  Expires August 26, 2019                [Page 7]
 
 Internet-Draft                    xrel                     February 2019
 
@@ -439,26 +439,27 @@ Internet-Draft                    xrel                     February 2019
 5.2.  Why not include target attributes as defined by RFC8288 'Web
       Linking'?
 
-   Link relations are universal, they associate conceptual targets and
-   not representations types.  It is the responsibility of the
-   application authors to communicate to their clients what data types
+   Link relations are universal, they describe an _association_ to a
+   conceptual target and not the targets themselves nor their
+   representations.  It is the responsibility of the application authors
 
 
 
-Montoya                  Expires August 25, 2019                [Page 8]
+Montoya                  Expires August 26, 2019                [Page 8]
 
 Internet-Draft                    xrel                     February 2019
 
 
-   are necessary to navigate a relationship and/or the data types that
-   might be expected as a result, also known as typed link relations.
+   to communicate to their clients what data types are necessary to
+   navigate a relationship and/or the data types that might be expected
+   as a result, also known as typed link relations.
 
    This level of abstraction has value because it's easier to
-   standardize representation (HTML Microformats, RAML data types, etc.)
-   and link relations than it is to standardize objects and object-
-   specific interfaces.  Application servers are free to typify link
-   relations in any way they wish and provide them in any order while
-   remaining understandable to the client.
+   standardize representations (HTML Microformats, RAML data types,
+   etc.) and link relations than it is to standardize objects and
+   object-specific interfaces.  Application servers are free to typify
+   link relations in any way they wish and to provide them in any order,
+   all while remaining understandable to the client.
 
 6.  References
 
@@ -495,16 +496,19 @@ Internet-Draft                    xrel                     February 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-   [W3C.yaml]
-              Ben Kiki, O, ., Evans, C, ., and I. Net, "YAML Aint Markup
-              Language", 2009, <http://www.yaml.org/spec/1.2/spec.html>.
 
 
 
-Montoya                  Expires August 25, 2019                [Page 9]
+
+
+Montoya                  Expires August 26, 2019                [Page 9]
 
 Internet-Draft                    xrel                     February 2019
 
+
+   [W3C.yaml]
+              Ben Kiki, O, ., Evans, C, ., and I. Net, "YAML Aint Markup
+              Language", 2009, <http://www.yaml.org/spec/1.2/spec.html>.
 
 6.2.  Informative References
 
@@ -553,8 +557,4 @@ Author's Address
 
 
 
-
-
-
-
-Montoya                  Expires August 25, 2019               [Page 10]
+Montoya                  Expires August 26, 2019               [Page 10]
