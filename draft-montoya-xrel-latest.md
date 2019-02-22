@@ -128,7 +128,7 @@ This specification uses [YAML 1.2](#W3C.yaml) as its underlying format. YAML is 
 
 To facilitate the automated processing of XREL documents, XREL imposes the following restrictions and requirements in addition to the core YAML 1.2 specification:
 
-* The first line of a XREL file consists of a YAML comment that specifies the XREL version and document type. Therefore, RAML processors cannot completely ignore all YAML comments.
+* The first line of a XREL file consists of a YAML comment that specifies the XREL version and document type. Therefore, XREL processors cannot completely ignore all YAML comments.
 
 ## Relationship Object
 
