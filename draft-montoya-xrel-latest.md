@@ -183,7 +183,7 @@ When applied to an XREL document, a URI fragment identifier MUST be a [JSON Poin
 
 ## Identifying XREL Relationships
 
-In the case of XREL Documents as specified in Section 2.3, this URL identifies the hypermedia relationship described in that document. For example, if the document example in Section 2.3.1 is served at **http://docs.example.org/xrels/shedulingService** then this URL is the identifier for the relationship described in that document.
+In the case of XREL Documents as specified in Section 2.3, the URL that identifies that document also identifies the hypermedia relationship described in that document. For example, if the document example in Section 2.3.1 is served at **http://docs.example.org/xrels/shedulingService** then this URL is the identifier for the relationship described in that document.
 
 In the case of XREL Collection Documents as specified in Section 2.4, fragment identifiers MUST be used for the relationships objects described in that document. For example, if the document example in Section 2.4.1 is served at **http://docs.example.org/xrels/clinical** then **http://docs.example.org/xrels/clinical#/shedulingService** and **http://docs.example.org/xrels/clinical#/patient** identify the first and second Relationship Object, respectively.
 
