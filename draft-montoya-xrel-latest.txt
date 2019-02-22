@@ -526,6 +526,14 @@ Internet-Draft                    xrel                     February 2019
               DOI 10.17487/RFC8288, October 2017,
               <https://www.rfc-editor.org/info/rfc8288>.
 
+   [untangled]
+              Fielding, R., "Untangled, musings of Roy T. Fielding",
+              n.d., <http://roy.gbiv.com/untangled/>.
+
+   [yahoo.rest]
+              "The REST Architectural Style List", n.d.,
+              <https://groups.yahoo.com/neo/groups/rest-discuss/info>.
+
 6.3.  URIs
 
    [1] RFC6901
@@ -542,14 +550,6 @@ Author's Address
    Mountain State Software Solutions
 
    Email: jmontoya@ms3-inc.com
-
-
-
-
-
-
-
-
 
 
 
