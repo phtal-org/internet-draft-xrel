@@ -147,7 +147,7 @@ description: Refers to an event scheduling service resource related to the conte
 
 ## XREL Collection Document
 
-Defines a map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to combine any collection of relation objects.
+Defines a map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to combine any collection of Relationship Objects.
 
 The first line of a collection document MUST begin with the text `#%XREL 1.0 Collection` followed by nothing but the end of the line.
 
@@ -245,6 +245,6 @@ The issues list for this draft can be found at <https://github.com/phtal-org/int
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.
 
 ## Why not include target attributes as defined by RFC8288 'Web Linking'?
-Link relations are universal, they associate conceptual targets and not representations types. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a relationship and/or the data types that might be expected as a result, also known as typed link relations.
+Link relations are universal, they describe an *association* to a conceptual target and not the targets themselves nor their representations. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a relationship and/or the data types that might be expected as a result, also known as typed link relations.
 
-This level of abstraction has value because it's easier to standardize representation (HTML Microformats, RAML data types, etc.) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to typify link relations in any way they wish and provide them in any order while remaining understandable to the client.
+This level of abstraction has value because it's easier to standardize representations (HTML Microformats, RAML data types, etc.) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to typify link relations in any way they wish and to provide them in any order, all while remaining understandable to the client.
