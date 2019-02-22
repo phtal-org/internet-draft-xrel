@@ -236,7 +236,7 @@ Internet-Draft                    xrel                     February 2019
    the core YAML 1.2 specification:
 
    o  The first line of a XREL file consists of a YAML comment that
-      specifies the XREL version and document type.  Therefore, RAML
+      specifies the XREL version and document type.  Therefore, XREL
       processors cannot completely ignore all YAML comments.
 
 2.2.  Relationship Object
