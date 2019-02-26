@@ -315,7 +315,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Montoya, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-montoya-xrel-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-02-22" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-02-25" />
   <meta name="dct.abstract" content="This document defines XREL, a data format for describing extended hypermedia relationships identified by Uniform Resource Locators." />
   <meta name="description" content="This document defines XREL, a data format for describing extended hypermedia relationships identified by Uniform Resource Locators." />
 
@@ -336,10 +336,10 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left">Intended status: Informational</td>
-<td class="right">February 22, 2019</td>
+<td class="right">February 25, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: August 26, 2019</td>
+<td class="left">Expires: August 29, 2019</td>
 <td class="right"></td>
 </tr>
 
@@ -356,7 +356,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 26, 2019.</p>
+<p>This Internet-Draft will expire on August 29, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -440,8 +440,8 @@ ul.toc li {
 <a href="#rfc.section.1.1.2">1.1.2.</a> <a href="#general" id="general">General</a>
 </h1>
 <p id="rfc.section.1.1.2.p.1">Representational State Transfer, or <strong>REST</strong>, is an architectural style for distributed hypermedia systems. Introduced and first defined in 2000 in Chapter 5, REST, of the doctoral dissertation &#8220;Architectural Styles and the Design of Network-based Software Architecture&#8221; by Roy Fielding.</p>
-<p><strong>Hypermedia</strong> is defined by the presence of application control information embedded within, or as a layer above, the presentation of information.</p>
-<p id="rfc.section.1.1.2.p.3">A <strong>hypermedia relationship</strong>, also known as a link relation, describes the semantics behind a virtual uni-directional association between two resources. Hypermedia relationships allow for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.</p>
+<p><strong>Hypermedia</strong>, or hypertext, is defined by the presence of application control information embedded within, or as a layer above, the presentation of information. Hypermedia allows for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.</p>
+<p id="rfc.section.1.1.2.p.3">A <strong>hypermedia relationship</strong>, also known as a link relation, describes the semantics behind a virtual uni-directional association between two resources.</p>
 <p id="rfc.section.1.1.2.p.4">A <strong>hypermedia relationship name</strong> is an identifier for a hypermedia relationship.</p>
 <p id="rfc.section.1.1.2.p.5">A <strong>resource</strong> is the intended conceptual target of a hypertext reference.</p>
 <p><strong>Representational state</strong> indicates the current state of the requested resource, the desired state for the requested resource, or the value of some other resource, such as a representation of the input data within a client&#8217;s query form, or a representation of some error condition for a response.</p>
@@ -455,8 +455,8 @@ ul.toc li {
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#motivation" id="motivation">Motivation</a>
 </h1>
-<p id="rfc.section.1.2.p.1">The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.</p>
-<p id="rfc.section.1.2.p.2">While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of de jure standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. <samp>patient</samp>, <samp>appointment</samp>, <samp>schedulingService</samp>, etc.) with a central repository, authors can create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.</p>
+<p id="rfc.section.1.2.p.1">The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and by the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.</p>
+<p id="rfc.section.1.2.p.2">While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. <samp>patient</samp>, <samp>appointment</samp>, <samp>schedulingService</samp>, etc.) with a central repository, authors can choose to create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.</p>
 <p id="rfc.section.1.2.p.3">This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example, a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely, public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.</p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> <a href="#xrel-documents" id="xrel-documents">XREL Documents</a>
@@ -594,7 +594,7 @@ patient:
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#appendix-a-acknowledgments" id="appendix-a-acknowledgments">Appendix A. Acknowledgments</a>
 </h1>
-<p id="rfc.section.4.p.1">Many thanks to Mike Amundsen, Jeff Michaud, Eric Wilde and Darrel Miller for their contributions in this space, even if not directly related to XREL documents.</p>
+<p id="rfc.section.4.p.1">Many thanks to Mike Amundsen, Jeff Michaud, Stu Charlton, Eric Wilde and Darrel Miller for their contributions in this space, even if not directly related to XREL documents.</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#appendix-b-frequently-asked-questions" id="appendix-b-frequently-asked-questions">Appendix B. Frequently Asked Questions</a>
 </h1>
@@ -606,8 +606,8 @@ patient:
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#why-not-include-target-attributes-as-defined-by-rfc8288-web-linking" id="why-not-include-target-attributes-as-defined-by-rfc8288-web-linking">Why not include target attributes as defined by RFC8288 &#8216;Web Linking&#8217;?</a>
 </h1>
-<p id="rfc.section.5.2.p.1">Link relations are universal, they describe an <em>association</em> to a conceptual target and not the targets themselves nor their representations. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a relationship and/or the data types that might be expected as a result, also known as typed link relations.</p>
-<p id="rfc.section.5.2.p.2">This level of abstraction has value because it&#8217;s easier to standardize representations (HTML Microformats, RAML data types, etc.) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to typify link relations in any way they wish and to provide them in any order, all while remaining understandable to the client.</p>
+<p id="rfc.section.5.2.p.1">Link relations are universal, they describe an <em>association</em> to a conceptual target and not the targets themselves nor their representations. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a relationship and/or the data types that might be expected as a result.</p>
+<p id="rfc.section.5.2.p.2">This level of abstraction has value because it&#8217;s easier to standardize representations (HTML Microformats, RAML data types, etc.) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to combine representations and link relations in any way they wish and to provide them in any order, all while remaining understandable to the client.</p>
 <h1 id="rfc.references">
 <a href="#rfc.references">6.</a> References</h1>
 <h1 id="rfc.references.1">
