@@ -90,9 +90,9 @@ This document registers a media-type identifier with the IANA: `application/xrel
 
 Representational State Transfer, or **REST**, is an architectural style for distributed hypermedia systems. Introduced and first defined in 2000 in Chapter 5, REST, of the doctoral dissertation "Architectural Styles and the Design of Network-based Software Architecture" by Roy Fielding.
 
-**Hypermedia** is defined by the presence of application control information embedded within, or as a layer above, the presentation of information.
+**Hypermedia**, or hypertext, is defined by the presence of application control information embedded within, or as a layer above, the presentation of information. Hypermedia allows for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.
 
-A **hypermedia relationship**, also known as a link relation, describes the semantics behind a virtual uni-directional association between two resources. Hypermedia relationships allow for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.
+A **hypermedia relationship**, also known as a link relation, describes the semantics behind a virtual uni-directional association between two resources.
 
 A **hypermedia relationship name** is an identifier for a hypermedia relationship.
 
@@ -112,9 +112,9 @@ Throughout this specification, **markdown** means [GitHub-Flavored Markdown](#gi
 
 ## Motivation
 
-The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.
+The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and by the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.
 
-While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of de jure standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. `patient`, `appointment`, `schedulingService`, etc.) with a central repository, authors can create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.
+While humans can derive meaning from relationship names in natural language, automated agents have relied on a central repository of standard names maintained by the Internet Assigned Numbers Authority (IANA). Instead of creating and registering entirely new link relations (i.e. `patient`, `appointment`, `schedulingService`, etc.) with a central repository, authors can choose to create an XREL document; one that explains the vital, perhaps domain-specific, semantics of the relationship and which is identified by an URL controlled by the author.
 
 This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example, a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely, public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.
 
@@ -243,7 +243,7 @@ This specification establishes the media type `application/xrel` for community r
 
 # Appendix A. Acknowledgments
 
-Many thanks to Mike Amundsen, Jeff Michaud, Eric Wilde and Darrel Miller for their contributions in this space, even if not directly related to XREL documents.
+Many thanks to Mike Amundsen, Jeff Michaud, Stu Charlton, Eric Wilde and Darrel Miller for their contributions in this space, even if not directly related to XREL documents.
 
 # Appendix B. Frequently Asked Questions
 
@@ -254,6 +254,6 @@ The issues list for this draft can be found at <https://github.com/phtal-org/int
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document editors.
 
 ## Why not include target attributes as defined by RFC8288 'Web Linking'?
-Link relations are universal, they describe an *association* to a conceptual target and not the targets themselves nor their representations. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a relationship and/or the data types that might be expected as a result, also known as typed link relations.
+Link relations are universal, they describe an *association* to a conceptual target and not the targets themselves nor their representations. It is the responsibility of the application authors to communicate to their clients what data types are necessary to navigate a relationship and/or the data types that might be expected as a result.
 
-This level of abstraction has value because it's easier to standardize representations (HTML Microformats, RAML data types, etc.) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to typify link relations in any way they wish and to provide them in any order, all while remaining understandable to the client.
+This level of abstraction has value because it's easier to standardize representations (HTML Microformats, RAML data types, etc.) and link relations than it is to standardize objects and object-specific interfaces. Application servers are free to combine representations and link relations in any way they wish and to provide them in any order, all while remaining understandable to the client.
