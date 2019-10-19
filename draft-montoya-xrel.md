@@ -19,8 +19,9 @@ author:
 
 normative:
   RFC1738: # URL
-  RFC3986: # JSON
+  RFC8259: # JSON
   RFC6901: # JSON Pointer
+  RFC3986: # URI Generic Syntax
   RFC7320: # URI Design and Ownership
   W3C.yaml:
     target: http://www.yaml.org/spec/1.2/spec.html
@@ -117,9 +118,9 @@ This decentralization allows for a much lower entry barrier, which is not incons
 # Specification
 
 ## Format
-Following OpenAPI conventions, XREL documents are YAML documents. The file extension `.yaml` SHALL be used to designate files containing XREL documents.
+Following the OpenAPI specification, XREL documents may be represented either in [JSON](#RFC6901) or [YAML](#W3C.yaml) format.
 
-This specification uses [YAML 1.2](#W3C.yaml) as its underlying format. YAML is a human-readable data format that aligns well with the design goals of this specification. As in YAML, all nodes such as keys, values, and tags, are case-sensitive.
+All field names in the specification are case sensitive. This includes all fields that are used as keys in a map, except where explicitly noted that keys are case insensitive.
 
 ## Rich Text Formatting
 Throughout the specification `description` fields are noted as supporting CommonMark markdown formatting.
@@ -147,10 +148,16 @@ Type | Description
 ---|---
 [Relationship Object](#relationship-object) | A single Relationship Object.
 
-#### Example
+#### Examples
 
 ~~~ yaml
 description: Refers to an event scheduling service resource related to the context resource.
+~~~
+
+~~~ json
+{
+  "description": "Refers to an event scheduling service resource related to the context resource."
+}
 ~~~
 
 ### XREL Collection Document
@@ -159,13 +166,24 @@ Type | Description
 ---|---
 Map[`string`, [Relationship Object](#relationship-object)] | A map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to group any number of Relationship Objects.
 
-#### Example
+#### Examples
 
 ~~~ yaml
 scheduling-service:
   description: Refers to an event scheduling service resource related to the context resource.
 patient:
   description: Refers to a patient resource related to the context resource.
+~~~
+
+~~~ json
+{
+  "scheduling-service": {
+    "description": "Refers to an event scheduling service resource related to the context resource."
+  },
+  "patient": {
+    "description": "Refers to a patient resource related to the context resource."
+  }
+}
 ~~~
 
 ## Identifying XREL Documents
@@ -186,7 +204,7 @@ In the case of XREL Collection Documents as specified in Section 2.4, fragment i
 
 # IANA Considerations
 
-This specification establishes the media type `application/xrel` for community review and will be submitted to the IESG for review, approval, and registration with IANA.
+This specification establishes the media type `application/xrel` and `application/xrel+json` for community review and will be submitted to the IESG for review, approval, and registration with IANA.
 
 ## application/xrel
 
@@ -210,17 +228,17 @@ This specification establishes the media type `application/xrel` for community r
 
 **Encoding considerations:**
 
-  > **binary:**  Because of YAML's relation to JSON the same encoding considerations of application/json as specified in [JavaScript Object Notation](#RFC3986) apply.
+  > **binary:**  Because of YAML's relation to JSON the same encoding considerations of JSON, as specified in {{RFC8259}}, apply.
 
 **Security considerations:**
 
-  > Because of YAML's relation to JSON this format shares security issues common to all JSON content types. The security issues of [JavaScript Object Notation](#RFC3986), section 6, should be considered.
+  > Because of YAML's relation to JSON this format shares security issues common to all JSON content types. The security issues of {{RFC8259}}, section 6, should be considered.
 
 **Interoperability considerations:** none
 
 **Fragment identifier considerations:**
 
-  > Fragment identifiers are to be computed as defined by the [JSON Pointer](RFC6901) specification.
+  > Fragment identifiers MUST be computed as defined by the {{RFC6901}} JSON Pointer specification.
 
 **Published specification:** This Document
 
@@ -231,6 +249,64 @@ This specification establishes the media type `application/xrel` for community r
   > **magic number(s):** none
 
   > **file extensions:** .yaml
+
+  > **macintosh type file code:** TEXT
+
+  > **object idenfiers:** none
+
+**Person to contact for further information:**
+
+  > **Name:** Jose Montoya
+
+  > **Email:** jmontoya@ms3-inc.com
+
+**Intended usage:** Common
+
+**Author/change controller:** Jose Montoya
+
+## application/xrel+json
+
+**Type name:** application
+
+**Subtype name:** xrel+json
+
+**Required parameters:** none
+
+**Optional parameters:**
+
+  > **type**: The "type" parameter has a value of "collection" or "single".
+
+  > Neither the parameter name nor its value are case sensitive.
+
+  > The value "single" indicates that the media type identifies an XREL Document.
+
+  > The value "collection" indicates that the media type identifies an XREL Collection Document.
+
+  > If not specified, the type is assumed to be "single".
+
+**Encoding considerations:**
+
+  > **binary:**  The same encoding considerations of JSON, as specified in {{RFC8259}}, apply.
+
+**Security considerations:**
+
+  > This media type shares security issues common to all JSON content types. The security issues of {{RFC8259}}, section 6, should be considered.
+
+**Interoperability considerations:** none
+
+**Fragment identifier considerations:**
+
+  > Fragment identifiers MUST be computed as defined by the {{RFC6901}} JSON Pointer specification.
+
+**Published specification:** This Document
+
+**Applications that use this media type:** Various
+
+**Additional information:**
+
+  > **magic number(s):** none
+
+  > **file extensions:** .json
 
   > **macintosh type file code:** TEXT
 
