@@ -103,10 +103,6 @@ A **resource** is the intended conceptual target of a hypertext reference.
 
 **Application state** is the state of the user’s application of computing to a given task, controlled and stored by the user agent and can be composed of representations from multiple servers.
 
-This document and the specification documented in it are heavily influenced by the [OpenAPI 3.1 Spec](#OAS).
-
-### Documents description
-
 ## Motivation
 
 The Uniform Interface constraint of the REST architectural style dictates that hypermedia be the engine of application state. This means that the state of the application and its potential transitions are dictated by the presence of hypermedia relationships in-band and by the navigation of those relationships by an user (human or automated). In order for users to evaluate and select the appropriate relationships to navigate they must rely on an out-band understanding of relationships by their names.
@@ -116,6 +112,7 @@ While humans can derive meaning from relationship names in natural language, aut
 This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example, a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely, public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.
 
 # Specification
+This document and the specification documented in it are heavily influenced by the [OpenAPI 3.1 Spec](#OAS).
 
 ## Format
 Following the OpenAPI specification, XREL documents may be represented either in [JSON](#RFC6901) or [YAML](#W3C.yaml) format.
