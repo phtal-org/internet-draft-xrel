@@ -33,9 +33,9 @@ normative:
     - name: Ingy döt Net
       ins: I. Net
     date: 2009
-  github.md:
-    target: https://github.github.com/gfm/
-    title: GitHub Flavored Markdown Spec
+  CommonMark:
+    target: https://spec.commonmark.org/0.27/
+    title: CommonMark Spec
     author:
       name: John McFarlane
 
@@ -62,11 +62,11 @@ informative:
   yahoo.rest:
     target: https://groups.yahoo.com/neo/groups/rest-discuss/info
     title: The REST Architectural Style List
-  RAML:
-    title: RAML Specification
-    target: https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md
+  OAS:
+    title: OpenAPI Specification
+    target: https://github.com/OAI/OpenAPI-Specification/blob/v3.1.0-dev/versions/3.1.0.md
     author:
-      org: The RAML Workgroup
+      org: OpenAPI Initiative, a Linux Foundation Collaborative Project
 
 --- abstract
 
@@ -102,13 +102,9 @@ A **resource** is the intended conceptual target of a hypertext reference.
 
 **Application state** is the state of the user’s application of computing to a given task, controlled and stored by the user agent and can be composed of representations from multiple servers.
 
-This document and the specification documented in it are heavily influenced by the [RAML 1.0 Spec](#RAML).
+This document and the specification documented in it are heavily influenced by the [OpenAPI 3.1 Spec](#OAS).
 
 ### Documents description
-
-A trailing question mark, for example **description?**, indicates an optional property.
-
-Throughout this specification, **markdown** means [GitHub-Flavored Markdown](#github.md). Tooling MAY choose to ignore some Markdown features to address security concerns.
 
 ## Motivation
 
@@ -118,54 +114,55 @@ While humans can derive meaning from relationship names in natural language, aut
 
 This decentralization allows for a much lower entry barrier, which is not inconsistent with the general concept of the web, and enables different use cases. For example, a private organization is fully capable of defining their own repository of XREL definitions outside of the open Internet, after all standards are a byproduct of authority. Conversely, public XREL definitions would allow for serendipitous reuse, where useful relationships backed by stable URLs might be discovered and possibly become de facto standard.
 
-# XREL Documents
+# Specification
 
 ## Format
-
-Following RAML conventions, XREL documents are YAML documents. The file extension `.yaml` SHALL be used to designate files containing XREL documents.
+Following OpenAPI conventions, XREL documents are YAML documents. The file extension `.yaml` SHALL be used to designate files containing XREL documents.
 
 This specification uses [YAML 1.2](#W3C.yaml) as its underlying format. YAML is a human-readable data format that aligns well with the design goals of this specification. As in YAML, all nodes such as keys, values, and tags, are case-sensitive.
 
-To facilitate the automated processing of XREL documents, XREL imposes the following restrictions and requirements in addition to the core YAML 1.2 specification:
+## Rich Text Formatting
+Throughout the specification `description` fields are noted as supporting CommonMark markdown formatting.
 
-* The first line of a XREL file consists of a YAML comment that specifies the XREL version and document type. Therefore, XREL processors cannot completely ignore all YAML comments.
+Where XREL tooling renders rich text it MUST support, at a minimum, markdown syntax as described by [CommonMark 0.27](#CommonMark). Tooling MAY choose to ignore some CommonMark features to address security concerns.
 
-## Relationship Object
+## Schema
+In the following description, if a field is not explicitly **REQUIRED** or described with a MUST or SHALL, it can be considered OPTIONAL.
+
+### Relationship Object
 
 Explains the semantics of a hypermedia relationship.
 
-### Properties
+#### Properties
 
 Name | Type | Description
 ---|:---:|---
-description | string | Describes the semantics of a hypermedia relationship. The semantics SHOULD describe the relationship of the target resource to the context resource, and not any particular representation formats. Markdown MAY be used for rich text representation.
+description | string | **REQUIRED** Describes the semantics of a hypermedia relationship. The semantics SHOULD describe the relationship of the target resource to the context resource, and not any particular representation formats. Markdown MAY be used for rich text representation.
 
-## XREL Document
+## Document Types
 
-Defines a single Relationship Object.
+### XREL Document
 
-The first line of a XREL document MUST begin with the text `#%XREL 1.0` followed by nothing but the end of the line.
+Type | Description
+---|---
+[Relationship Object](#relationship-object) | A single Relationship Object.
 
-### Document Example
+#### Example
 
 ~~~ yaml
-#%XREL 1.0
-
 description: Refers to an event scheduling service resource related to the context resource.
 ~~~
 
-## XREL Collection Document
+### XREL Collection Document
 
-Defines a map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to combine any collection of Relationship Objects.
+Type | Description
+---|---
+Map[`string`, [Relationship Object](#relationship-object)] | A map where the keys are the document scoped relationship names and the values are Relationship Objects. XREL Collections can be used to group any number of Relationship Objects.
 
-The first line of a collection document MUST begin with the text `#%XREL 1.0 Collection` followed by nothing but the end of the line.
-
-### Document Example
+#### Example
 
 ~~~ yaml
-#%XREL 1.0 Collection
-
-schedulingService:
+scheduling-service:
   description: Refers to an event scheduling service resource related to the context resource.
 patient:
   description: Refers to a patient resource related to the context resource.
@@ -173,7 +170,7 @@ patient:
 
 ## Identifying XREL Documents
 
-XREL documents are identified by unique URLs, this URL SHOULD be dereferenceable.
+XREL documents are identified by unique URLs, these URL SHOULD be dereferenceable.
 
 In order to reduce load on servers responding to XREL document requests, it is RECOMMENDED that servers use cache control directives that instruct client apps to locally cache the results. Clients making these XREL document requests SHOULD honor the server's caching directives.
 
@@ -183,9 +180,9 @@ When applied to an XREL document, a URI fragment identifier MUST be a [JSON Poin
 
 ## Identifying XREL Relationships
 
-In the case of XREL Documents as specified in Section 2.3, the URL that identifies that document also identifies the hypermedia relationship described in that document. For example, if the document example in Section 2.3.1 is served at **http://docs.example.org/xrels/shedulingService** then this URL is the identifier for the relationship described in that document.
+In the case of XREL Documents as specified in Section 2.3, the URL that identifies that document also identifies the hypermedia relationship described in that document. For example, if the document example in Section 2.3.1 is served at **http://docs.example.org/xrels/sheduling-service** then this URL is the identifier for the relationship described in that document.
 
-In the case of XREL Collection Documents as specified in Section 2.4, fragment identifiers MUST be used for the relationships objects described in that document. For example, if the document example in Section 2.4.1 is served at **http://docs.example.org/xrels/clinical** then **http://docs.example.org/xrels/clinical#/shedulingService** and **http://docs.example.org/xrels/clinical#/patient** identify the first and second Relationship Object, respectively.
+In the case of XREL Collection Documents as specified in Section 2.4, fragment identifiers MUST be used for the relationships objects described in that document. For example, if the document example in Section 2.4.1 is served at **http://docs.example.org/xrels/clinical** then **http://docs.example.org/xrels/clinical#/sheduling-service** and **http://docs.example.org/xrels/clinical#/patient** identify the first and second Relationship Objects, respectively.
 
 # IANA Considerations
 
