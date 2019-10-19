@@ -21,6 +21,8 @@ jobs:
       run: make
     - name: Update GitHub Pages
       run: make gh-pages
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - name: Upload to Datatracker
       run: make upload
       if: startsWith(github.ref, 'refs/tags/draft-')

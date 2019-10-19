@@ -24,7 +24,7 @@ normative:
   RFC7320: # URI Design and Ownership
   W3C.yaml:
     target: http://www.yaml.org/spec/1.2/spec.html
-    title: YAML Aint Markup Language
+    title: YAML Aint Markup Languages
     author:
     - name: Oren Ben-Kiki
       ins: Ben Kiki, O.
