@@ -4,8 +4,8 @@
 
 Network Working Group                                         J. Montoya
 Internet-Draft                         Mountain State Software Solutions
-Intended status: Informational                         February 26, 2019
-Expires: August 30, 2019
+Intended status: Informational                          October 18, 2019
+Expires: April 20, 2020
 
 
                       Extended Link Relationships
@@ -31,7 +31,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 30, 2019.
+   This Internet-Draft will expire on April 20, 2020.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Montoya                  Expires August 30, 2019                [Page 1]
+Montoya                  Expires April 20, 2020                 [Page 1]
 
-Internet-Draft                    xrel                     February 2019
+Internet-Draft                    xrel                      October 2019
 
 
 Table of Contents
@@ -66,14 +66,14 @@ Table of Contents
        1.1.2.  General . . . . . . . . . . . . . . . . . . . . . . .   3
        1.1.3.  Documents description . . . . . . . . . . . . . . . .   4
      1.2.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   4
-   2.  XREL Documents  . . . . . . . . . . . . . . . . . . . . . . .   4
+   2.  Specification . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.1.  Format  . . . . . . . . . . . . . . . . . . . . . . . . .   4
-     2.2.  Relationship Object . . . . . . . . . . . . . . . . . . .   5
-       2.2.1.  Properties  . . . . . . . . . . . . . . . . . . . . .   5
-     2.3.  XREL Document . . . . . . . . . . . . . . . . . . . . . .   5
-       2.3.1.  Document Example  . . . . . . . . . . . . . . . . . .   5
-     2.4.  XREL Collection Document  . . . . . . . . . . . . . . . .   6
-       2.4.1.  Document Example  . . . . . . . . . . . . . . . . . .   6
+     2.2.  Rich Text Formatting  . . . . . . . . . . . . . . . . . .   5
+     2.3.  Schema  . . . . . . . . . . . . . . . . . . . . . . . . .   5
+       2.3.1.  Relationship Object . . . . . . . . . . . . . . . . .   5
+     2.4.  Document Types  . . . . . . . . . . . . . . . . . . . . .   5
+       2.4.1.  XREL Document . . . . . . . . . . . . . . . . . . . .   5
+       2.4.2.  XREL Collection Document  . . . . . . . . . . . . . .   6
      2.5.  Identifying XREL Documents  . . . . . . . . . . . . . . .   6
      2.6.  Fragment identifiers  . . . . . . . . . . . . . . . . . .   6
      2.7.  Identifying XREL Relationships  . . . . . . . . . . . . .   6
@@ -83,12 +83,12 @@ Table of Contents
    5.  Appendix B. Frequently Asked Questions  . . . . . . . . . . .   8
      5.1.  How can I submit comments or feedback to the editors? . .   8
      5.2.  Why not include target attributes as defined by RFC8288
-           'Web Linking'?  . . . . . . . . . . . . . . . . . . . . .   8
+           'Web Linking'?  . . . . . . . . . . . . . . . . . . . . .   9
    6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
      6.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
      6.2.  Informative References  . . . . . . . . . . . . . . . . .  10
      6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  10
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Montoya                  Expires August 30, 2019                [Page 2]
+Montoya                  Expires April 20, 2020                 [Page 2]
 
-Internet-Draft                    xrel                     February 2019
+Internet-Draft                    xrel                      October 2019
 
 
 1.1.1.  Terminology and Conformance Language
@@ -157,7 +157,7 @@ Internet-Draft                    xrel                     February 2019
    and can be composed of representations from multiple servers.
 
    This document and the specification documented in it are heavily
-   influenced by the RAML 1.0 Spec [RAML].
+   influenced by the OpenAPI 3.1 Spec [OAS].
 
 
 
@@ -165,19 +165,12 @@ Internet-Draft                    xrel                     February 2019
 
 
 
-Montoya                  Expires August 30, 2019                [Page 3]
+Montoya                  Expires April 20, 2020                 [Page 3]
 
-Internet-Draft                    xrel                     February 2019
+Internet-Draft                    xrel                      October 2019
 
 
 1.1.3.  Documents description
-
-   A trailing question mark, for example *description?*, indicates an
-   optional property.
-
-   Throughout this specification, *markdown* means GitHub-Flavored
-   Markdown [github.md].  Tooling MAY choose to ignore some Markdown
-   features to address security concerns.
 
 1.2.  Motivation
 
@@ -209,100 +202,112 @@ Internet-Draft                    xrel                     February 2019
    serendipitous reuse, where useful relationships backed by stable URLs
    might be discovered and possibly become de facto standard.
 
-2.  XREL Documents
+2.  Specification
 
 2.1.  Format
 
-   Following RAML conventions, XREL documents are YAML documents.  The
-   file extension ".yaml" SHALL be used to designate files containing
-   XREL documents.
-
-
-
-
-
-Montoya                  Expires August 30, 2019                [Page 4]
-
-Internet-Draft                    xrel                     February 2019
-
+   Following OpenAPI conventions, XREL documents are YAML documents.
+   The file extension ".yaml" SHALL be used to designate files
+   containing XREL documents.
 
    This specification uses YAML 1.2 [W3C.yaml] as its underlying format.
    YAML is a human-readable data format that aligns well with the design
    goals of this specification.  As in YAML, all nodes such as keys,
    values, and tags, are case-sensitive.
 
-   To facilitate the automated processing of XREL documents, XREL
-   imposes the following restrictions and requirements in addition to
-   the core YAML 1.2 specification:
 
-   o  The first line of a XREL file consists of a YAML comment that
-      specifies the XREL version and document type.  Therefore, XREL
-      processors cannot completely ignore all YAML comments.
 
-2.2.  Relationship Object
+
+
+
+
+Montoya                  Expires April 20, 2020                 [Page 4]
+
+Internet-Draft                    xrel                      October 2019
+
+
+2.2.  Rich Text Formatting
+
+   Throughout the specification "description" fields are noted as
+   supporting CommonMark markdown formatting.
+
+   Where XREL tooling renders rich text it MUST support, at a minimum,
+   markdown syntax as described by CommonMark 0.27 [CommonMark].
+   Tooling MAY choose to ignore some CommonMark features to address
+   security concerns.
+
+2.3.  Schema
+
+   In the following description, if a field is not explicitly *REQUIRED*
+   or described with a MUST or SHALL, it can be considered OPTIONAL.
+
+2.3.1.  Relationship Object
 
    Explains the semantics of a hypermedia relationship.
 
-2.2.1.  Properties
+2.3.1.1.  Properties
 
    +-------------+--------+--------------------------------------------+
    | Name        |  Type  | Description                                |
    +-------------+--------+--------------------------------------------+
-   | description | string | Describes the semantics of a hypermedia    |
-   |             |        | relationship. The semantics SHOULD         |
-   |             |        | describe the relationship of the target    |
-   |             |        | resource to the context resource, and not  |
-   |             |        | any particular representation formats.     |
-   |             |        | Markdown MAY be used for rich text         |
-   |             |        | representation.                            |
+   | description | string | *REQUIRED* Describes the semantics of a    |
+   |             |        | hypermedia relationship. The semantics     |
+   |             |        | SHOULD describe the relationship of the    |
+   |             |        | target resource to the context resource,   |
+   |             |        | and not any particular representation      |
+   |             |        | formats. Markdown MAY be used for rich     |
+   |             |        | text representation.                       |
    +-------------+--------+--------------------------------------------+
 
-2.3.  XREL Document
+2.4.  Document Types
 
-   Defines a single Relationship Object.
+2.4.1.  XREL Document
 
-   The first line of a XREL document MUST begin with the text "#%XREL
-   1.0" followed by nothing but the end of the line.
+   +-----------------------------------+-------------------------------+
+   | Type                              | Description                   |
+   +-----------------------------------+-------------------------------+
+   | Relationship Object (Section      | A single Relationship Object. |
+   | 2.3.1)                            |                               |
+   +-----------------------------------+-------------------------------+
 
-2.3.1.  Document Example
 
-#%XREL 1.0
+
+
+
+
+
+
+Montoya                  Expires April 20, 2020                 [Page 5]
+
+Internet-Draft                    xrel                      October 2019
+
+
+2.4.1.1.  Example
 
 description: Refers to an event scheduling service resource related to the context resource.
 
+2.4.2.  XREL Collection Document
 
+   +----------------+--------------------------------------------------+
+   | Type           | Description                                      |
+   +----------------+--------------------------------------------------+
+   | Map["string",  | A map where the keys are the document scoped     |
+   | Relationship   | relationship names and the values are            |
+   | Object         | Relationship Objects. XREL Collections can be    |
+   | (Section       | used to group any number of Relationship         |
+   | 2.3.1)]        | Objects.                                         |
+   +----------------+--------------------------------------------------+
 
+2.4.2.1.  Example
 
-
-
-
-
-Montoya                  Expires August 30, 2019                [Page 5]
-
-Internet-Draft                    xrel                     February 2019
-
-
-2.4.  XREL Collection Document
-
-   Defines a map where the keys are the document scoped relationship
-   names and the values are Relationship Objects.  XREL Collections can
-   be used to combine any collection of Relationship Objects.
-
-   The first line of a collection document MUST begin with the text
-   "#%XREL 1.0 Collection" followed by nothing but the end of the line.
-
-2.4.1.  Document Example
-
-#%XREL 1.0 Collection
-
-schedulingService:
+scheduling-service:
   description: Refers to an event scheduling service resource related to the context resource.
 patient:
   description: Refers to a patient resource related to the context resource.
 
 2.5.  Identifying XREL Documents
 
-   XREL documents are identified by unique URLs, this URL SHOULD be
+   XREL documents are identified by unique URLs, these URL SHOULD be
    dereferenceable.
 
    In order to reduce load on servers responding to XREL document
@@ -322,24 +327,24 @@ patient:
    that identifies that document also identifies the hypermedia
    relationship described in that document.  For example, if the
    document example in Section 2.3.1 is served at
-   *http://docs.example.org/xrels/shedulingService* then this URL is the
-   identifier for the relationship described in that document.
+   *http://docs.example.org/xrels/sheduling-service* then this URL is
+   the identifier for the relationship described in that document.
+
+
+
+
+Montoya                  Expires April 20, 2020                 [Page 6]
+
+Internet-Draft                    xrel                      October 2019
+
 
    In the case of XREL Collection Documents as specified in Section 2.4,
    fragment identifiers MUST be used for the relationships objects
    described in that document.  For example, if the document example in
    Section 2.4.1 is served at *http://docs.example.org/xrels/clinical*
-   then *http://docs.example.org/xrels/clinical#/shedulingService* and
-
-
-
-Montoya                  Expires August 30, 2019                [Page 6]
-
-Internet-Draft                    xrel                     February 2019
-
-
+   then *http://docs.example.org/xrels/clinical#/sheduling-service* and
    *http://docs.example.org/xrels/clinical#/patient* identify the first
-   and second Relationship Object, respectively.
+   and second Relationship Objects, respectively.
 
 3.  IANA Considerations
 
@@ -357,15 +362,18 @@ Internet-Draft                    xrel                     February 2019
 
    *Optional parameters:*
 
-      *profile:*: A whitespace-separated list of URIs identifying
-      specific constraints or conventions that apply to an XREL
-      document.  A profile must not change the semantics of the resource
-      representation when processed without profile knowledge, so that
-      clients both with and without knowledge of a profiled resource can
-      safely use the same representation.  The profile parameter may
-      also be used by clients to express their preferences in the
-      content negotiation process.  It is recommended that profile URIs
-      are dereferenceable and provide useful documentation at that URI.
+      *type*: The "type" parameter has a value of "collection" or
+      "single".
+
+      Neither the parameter name nor its value are case sensitive.
+
+      The value "single" indicates that the media type identifies an
+      XREL Document.
+
+      The value "collection" indicates that the media type identifies an
+      XREL Collection Document.
+
+      If not specified, the type is assumed to be "single".
 
    *Encoding considerations:*
 
@@ -377,6 +385,15 @@ Internet-Draft                    xrel                     February 2019
 
       Because of YAML's relation to JSON this format shares security
       issues common to all JSON content types.  The security issues of
+
+
+
+
+Montoya                  Expires April 20, 2020                 [Page 7]
+
+Internet-Draft                    xrel                      October 2019
+
+
       JavaScript Object Notation [RFC3986], section 6, should be
       considered.
 
@@ -386,13 +403,6 @@ Internet-Draft                    xrel                     February 2019
 
       Fragment identifiers are to be computed as defined by the JSON
       Pointer [2] specification.
-
-
-
-Montoya                  Expires August 30, 2019                [Page 7]
-
-Internet-Draft                    xrel                     February 2019
-
 
    *Published specification:* This Document
 
@@ -433,6 +443,13 @@ Internet-Draft                    xrel                     February 2019
    information, see https://phtal-org.github.io/internet-draft-xrel/
    [4].
 
+
+
+Montoya                  Expires April 20, 2020                 [Page 8]
+
+Internet-Draft                    xrel                      October 2019
+
+
    To provide feedback, use this issue tracker, the communication
    methods listed on the homepage, or email the document editors.
 
@@ -442,14 +459,6 @@ Internet-Draft                    xrel                     February 2019
    Link relations are universal, they describe an _association_ to a
    conceptual target and not the targets themselves nor their
    representations.  It is the responsibility of the application authors
-
-
-
-Montoya                  Expires August 30, 2019                [Page 8]
-
-Internet-Draft                    xrel                     February 2019
-
-
    to communicate to their clients what data types are necessary to
    navigate a relationship and/or the data types that might be expected
    as a result.
@@ -466,9 +475,9 @@ Internet-Draft                    xrel                     February 2019
 
 6.1.  Normative References
 
-   [github.md]
-              McFarlane, J., "GitHub Flavored Markdown Spec", n.d.,
-              <https://github.github.com/gfm/>.
+   [CommonMark]
+              McFarlane, J., "CommonMark Spec", n.d.,
+              <https://spec.commonmark.org/0.27/>.
 
    [RFC1738]  Berners-Lee, T., Masinter, L., and M. McCahill, "Uniform
               Resource Locators (URL)", RFC 1738, DOI 10.17487/RFC1738,
@@ -489,6 +498,14 @@ Internet-Draft                    xrel                     February 2019
               DOI 10.17487/RFC6901, April 2013,
               <https://www.rfc-editor.org/info/rfc6901>.
 
+
+
+
+Montoya                  Expires April 20, 2020                 [Page 9]
+
+Internet-Draft                    xrel                      October 2019
+
+
    [RFC7320]  Nottingham, M., "URI Design and Ownership", BCP 190,
               RFC 7320, DOI 10.17487/RFC7320, July 2014,
               <https://www.rfc-editor.org/info/rfc7320>.
@@ -497,24 +514,16 @@ Internet-Draft                    xrel                     February 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-
-
-
-
-Montoya                  Expires August 30, 2019                [Page 9]
-
-Internet-Draft                    xrel                     February 2019
-
-
    [W3C.yaml]
               Ben Kiki, O, ., Evans, C, ., and I. Net, "YAML Aint Markup
               Language", 2009, <http://www.yaml.org/spec/1.2/spec.html>.
 
 6.2.  Informative References
 
-   [RAML]     The RAML Workgroup, "RAML Specification", n.d.,
-              <https://github.com/raml-org/raml-
-              spec/blob/master/versions/raml-10/raml-10.md>.
+   [OAS]      OpenAPI Initiative, a Linux Foundation Collaborative
+              Project, "OpenAPI Specification", n.d.,
+              <https://github.com/OAI/OpenAPI-Specification/blob/v3.1.0-
+              dev/versions/3.1.0.md>.
 
    [REST]     Fielding, R., "Architectural Styles and the Design of
               Network-based Software Architectures", Ph.D. Dissertation,
@@ -544,6 +553,15 @@ Internet-Draft                    xrel                     February 2019
 
    [4] https://phtal-org.github.io/internet-draft-xrel/
 
+
+
+
+
+Montoya                  Expires April 20, 2020                [Page 10]
+
+Internet-Draft                    xrel                      October 2019
+
+
 Author's Address
 
    Jose Montoya
@@ -557,4 +575,42 @@ Author's Address
 
 
 
-Montoya                  Expires August 30, 2019               [Page 10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Montoya                  Expires April 20, 2020                [Page 11]
