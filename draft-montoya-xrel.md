@@ -198,7 +198,15 @@ This specification establishes the media type `application/xrel` for community r
 
 **Optional parameters:**
 
-  > **profile:**: A whitespace-separated list of URIs identifying specific constraints or conventions that apply to an XREL document. A profile must not change the semantics of the resource representation when processed without profile knowledge, so that clients both with and without knowledge of a profiled resource can safely use the same representation. The profile parameter may also be used by clients to express their preferences in the content negotiation process. It is recommended that profile URIs are dereferenceable and provide useful documentation at that URI.
+  > **type**: The "type" parameter has a value of "collection" or "single".
+
+  > Neither the parameter name nor its value are case sensitive.
+
+  > The value "single" indicates that the media type identifies an XREL Document.
+
+  > The value "collection" indicates that the media type identifies an XREL Collection Document.
+
+  > If not specified, the type is assumed to be "single".
 
 **Encoding considerations:**
 
