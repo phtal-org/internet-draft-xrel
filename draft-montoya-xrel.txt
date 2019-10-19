@@ -4,8 +4,8 @@
 
 Network Working Group                                         J. Montoya
 Internet-Draft                         Mountain State Software Solutions
-Intended status: Informational                          October 18, 2019
-Expires: April 20, 2020
+Intended status: Informational                          October 19, 2019
+Expires: April 21, 2020
 
 
                       Extended Link Relationships
@@ -31,7 +31,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 20, 2020.
+   This Internet-Draft will expire on April 21, 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Montoya                  Expires April 20, 2020                 [Page 1]
+Montoya                  Expires April 21, 2020                 [Page 1]
 
 Internet-Draft                    xrel                      October 2019
 
@@ -68,7 +68,7 @@ Table of Contents
      1.2.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   4
    2.  Specification . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.1.  Format  . . . . . . . . . . . . . . . . . . . . . . . . .   4
-     2.2.  Rich Text Formatting  . . . . . . . . . . . . . . . . . .   5
+     2.2.  Rich Text Formatting  . . . . . . . . . . . . . . . . . .   4
      2.3.  Schema  . . . . . . . . . . . . . . . . . . . . . . . . .   5
        2.3.1.  Relationship Object . . . . . . . . . . . . . . . . .   5
      2.4.  Document Types  . . . . . . . . . . . . . . . . . . . . .   5
@@ -76,19 +76,20 @@ Table of Contents
        2.4.2.  XREL Collection Document  . . . . . . . . . . . . . .   6
      2.5.  Identifying XREL Documents  . . . . . . . . . . . . . . .   6
      2.6.  Fragment identifiers  . . . . . . . . . . . . . . . . . .   6
-     2.7.  Identifying XREL Relationships  . . . . . . . . . . . . .   6
+     2.7.  Identifying XREL Relationships  . . . . . . . . . . . . .   7
    3.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
      3.1.  application/xrel  . . . . . . . . . . . . . . . . . . . .   7
-   4.  Appendix A. Acknowledgments . . . . . . . . . . . . . . . . .   8
-   5.  Appendix B. Frequently Asked Questions  . . . . . . . . . . .   8
-     5.1.  How can I submit comments or feedback to the editors? . .   8
+     3.2.  application/xrel+json . . . . . . . . . . . . . . . . . .   8
+   4.  Appendix A. Acknowledgments . . . . . . . . . . . . . . . . .  10
+   5.  Appendix B. Frequently Asked Questions  . . . . . . . . . . .  10
+     5.1.  How can I submit comments or feedback to the editors? . .  10
      5.2.  Why not include target attributes as defined by RFC8288
-           'Web Linking'?  . . . . . . . . . . . . . . . . . . . . .   9
-   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
-     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
-     6.2.  Informative References  . . . . . . . . . . . . . . . . .  10
-     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  10
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
+           'Web Linking'?  . . . . . . . . . . . . . . . . . . . . .  10
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
+     6.2.  Informative References  . . . . . . . . . . . . . . . . .  12
+     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -108,8 +109,7 @@ Table of Contents
 
 
 
-
-Montoya                  Expires April 20, 2020                 [Page 2]
+Montoya                  Expires April 21, 2020                 [Page 2]
 
 Internet-Draft                    xrel                      October 2019
 
@@ -165,7 +165,7 @@ Internet-Draft                    xrel                      October 2019
 
 
 
-Montoya                  Expires April 20, 2020                 [Page 3]
+Montoya                  Expires April 21, 2020                 [Page 3]
 
 Internet-Draft                    xrel                      October 2019
 
@@ -206,30 +206,25 @@ Internet-Draft                    xrel                      October 2019
 
 2.1.  Format
 
-   Following OpenAPI conventions, XREL documents are YAML documents.
-   The file extension ".yaml" SHALL be used to designate files
-   containing XREL documents.
+   Following the OpenAPI specification, XREL documents may be
+   represented either in JSON [RFC6901] or YAML [W3C.yaml] format.
 
-   This specification uses YAML 1.2 [W3C.yaml] as its underlying format.
-   YAML is a human-readable data format that aligns well with the design
-   goals of this specification.  As in YAML, all nodes such as keys,
-   values, and tags, are case-sensitive.
-
-
-
-
-
-
-
-Montoya                  Expires April 20, 2020                 [Page 4]
-
-Internet-Draft                    xrel                      October 2019
-
+   All field names in the specification are case sensitive.  This
+   includes all fields that are used as keys in a map, except where
+   explicitly noted that keys are case insensitive.
 
 2.2.  Rich Text Formatting
 
    Throughout the specification "description" fields are noted as
    supporting CommonMark markdown formatting.
+
+
+
+
+Montoya                  Expires April 21, 2020                 [Page 4]
+
+Internet-Draft                    xrel                      October 2019
+
 
    Where XREL tooling renders rich text it MUST support, at a minimum,
    markdown syntax as described by CommonMark 0.27 [CommonMark].
@@ -270,21 +265,22 @@ Internet-Draft                    xrel                      October 2019
    | 2.3.1)                            |                               |
    +-----------------------------------+-------------------------------+
 
+2.4.1.1.  Examples
+
+description: Refers to an event scheduling service resource related to the context resource.
+
+{
+  "description": "Refers to an event scheduling service resource related to the context resource."
+}
 
 
 
 
 
-
-
-Montoya                  Expires April 20, 2020                 [Page 5]
+Montoya                  Expires April 21, 2020                 [Page 5]
 
 Internet-Draft                    xrel                      October 2019
 
-
-2.4.1.1.  Example
-
-description: Refers to an event scheduling service resource related to the context resource.
 
 2.4.2.  XREL Collection Document
 
@@ -298,12 +294,21 @@ description: Refers to an event scheduling service resource related to the conte
    | 2.3.1)]        | Objects.                                         |
    +----------------+--------------------------------------------------+
 
-2.4.2.1.  Example
+2.4.2.1.  Examples
 
 scheduling-service:
   description: Refers to an event scheduling service resource related to the context resource.
 patient:
   description: Refers to a patient resource related to the context resource.
+
+{
+  "scheduling-service": {
+    "description": "Refers to an event scheduling service resource related to the context resource."
+  },
+  "patient": {
+    "description": "Refers to a patient resource related to the context resource."
+  }
+}
 
 2.5.  Identifying XREL Documents
 
@@ -321,6 +326,18 @@ patient:
    When applied to an XREL document, a URI fragment identifier MUST be a
    JSON Pointer [1] and be computed as such.
 
+
+
+
+
+
+
+
+Montoya                  Expires April 21, 2020                 [Page 6]
+
+Internet-Draft                    xrel                      October 2019
+
+
 2.7.  Identifying XREL Relationships
 
    In the case of XREL Documents as specified in Section 2.3, the URL
@@ -329,14 +346,6 @@ patient:
    document example in Section 2.3.1 is served at
    *http://docs.example.org/xrels/sheduling-service* then this URL is
    the identifier for the relationship described in that document.
-
-
-
-
-Montoya                  Expires April 20, 2020                 [Page 6]
-
-Internet-Draft                    xrel                      October 2019
-
 
    In the case of XREL Collection Documents as specified in Section 2.4,
    fragment identifiers MUST be used for the relationships objects
@@ -348,9 +357,9 @@ Internet-Draft                    xrel                      October 2019
 
 3.  IANA Considerations
 
-   This specification establishes the media type "application/xrel" for
-   community review and will be submitted to the IESG for review,
-   approval, and registration with IANA.
+   This specification establishes the media type "application/xrel" and
+   "application/xrel+json" for community review and will be submitted to
+   the IESG for review, approval, and registration with IANA.
 
 3.1.  application/xrel
 
@@ -377,32 +386,29 @@ Internet-Draft                    xrel                      October 2019
 
    *Encoding considerations:*
 
+
+
+
+Montoya                  Expires April 21, 2020                 [Page 7]
+
+Internet-Draft                    xrel                      October 2019
+
+
       *binary:* Because of YAML's relation to JSON the same encoding
-      considerations of application/json as specified in JavaScript
-      Object Notation [RFC3986] apply.
+      considerations of JSON, as specified in [RFC8259], apply.
 
    *Security considerations:*
 
       Because of YAML's relation to JSON this format shares security
       issues common to all JSON content types.  The security issues of
-
-
-
-
-Montoya                  Expires April 20, 2020                 [Page 7]
-
-Internet-Draft                    xrel                      October 2019
-
-
-      JavaScript Object Notation [RFC3986], section 6, should be
-      considered.
+      [RFC8259], section 6, should be considered.
 
    *Interoperability considerations:* none
 
    *Fragment identifier considerations:*
 
-      Fragment identifiers are to be computed as defined by the JSON
-      Pointer [2] specification.
+      Fragment identifiers MUST be computed as defined by the [RFC6901]
+      JSON Pointer specification.
 
    *Published specification:* This Document
 
@@ -428,6 +434,86 @@ Internet-Draft                    xrel                      October 2019
 
    *Author/change controller:* Jose Montoya
 
+3.2.  application/xrel+json
+
+   *Type name:* application
+
+   *Subtype name:* xrel+json
+
+   *Required parameters:* none
+
+
+
+
+Montoya                  Expires April 21, 2020                 [Page 8]
+
+Internet-Draft                    xrel                      October 2019
+
+
+   *Optional parameters:*
+
+      *type*: The "type" parameter has a value of "collection" or
+      "single".
+
+      Neither the parameter name nor its value are case sensitive.
+
+      The value "single" indicates that the media type identifies an
+      XREL Document.
+
+      The value "collection" indicates that the media type identifies an
+      XREL Collection Document.
+
+      If not specified, the type is assumed to be "single".
+
+   *Encoding considerations:*
+
+      *binary:* The same encoding considerations of JSON, as specified
+      in [RFC8259], apply.
+
+   *Security considerations:*
+
+      This media type shares security issues common to all JSON content
+      types.  The security issues of [RFC8259], section 6, should be
+      considered.
+
+   *Interoperability considerations:* none
+
+   *Fragment identifier considerations:*
+
+      Fragment identifiers MUST be computed as defined by the [RFC6901]
+      JSON Pointer specification.
+
+   *Published specification:* This Document
+
+   *Applications that use this media type:* Various
+
+   *Additional information:*
+
+      *magic number(s):* none
+
+      *file extensions:* .json
+
+      *macintosh type file code:* TEXT
+
+      *object idenfiers:* none
+
+   *Person to contact for further information:*
+
+
+
+Montoya                  Expires April 21, 2020                 [Page 9]
+
+Internet-Draft                    xrel                      October 2019
+
+
+      *Name:* Jose Montoya
+
+      *Email:* jmontoya@ms3-inc.com
+
+   *Intended usage:* Common
+
+   *Author/change controller:* Jose Montoya
+
 4.  Appendix A.  Acknowledgments
 
    Many thanks to Mike Amundsen, Jeff Michaud, Stu Charlton, Eric Wilde
@@ -439,16 +525,9 @@ Internet-Draft                    xrel                      October 2019
 5.1.  How can I submit comments or feedback to the editors?
 
    The issues list for this draft can be found at https://github.com/
-   phtal-org/internet-draft-xrel/issues [3].  For additional
+   phtal-org/internet-draft-xrel/issues [2].  For additional
    information, see https://phtal-org.github.io/internet-draft-xrel/
-   [4].
-
-
-
-Montoya                  Expires April 20, 2020                 [Page 8]
-
-Internet-Draft                    xrel                      October 2019
-
+   [3].
 
    To provide feedback, use this issue tracker, the communication
    methods listed on the homepage, or email the document editors.
@@ -470,6 +549,18 @@ Internet-Draft                    xrel                      October 2019
    representations and link relations in any way they wish and to
    provide them in any order, all while remaining understandable to the
    client.
+
+
+
+
+
+
+
+
+Montoya                  Expires April 21, 2020                [Page 10]
+
+Internet-Draft                    xrel                      October 2019
+
 
 6.  References
 
@@ -498,14 +589,6 @@ Internet-Draft                    xrel                      October 2019
               DOI 10.17487/RFC6901, April 2013,
               <https://www.rfc-editor.org/info/rfc6901>.
 
-
-
-
-Montoya                  Expires April 20, 2020                 [Page 9]
-
-Internet-Draft                    xrel                      October 2019
-
-
    [RFC7320]  Nottingham, M., "URI Design and Ownership", BCP 190,
               RFC 7320, DOI 10.17487/RFC7320, July 2014,
               <https://www.rfc-editor.org/info/rfc7320>.
@@ -514,9 +597,26 @@ Internet-Draft                    xrel                      October 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
+
    [W3C.yaml]
               Ben Kiki, O, ., Evans, C, ., and I. Net, "YAML Aint Markup
               Language", 2009, <http://www.yaml.org/spec/1.2/spec.html>.
+
+
+
+
+
+
+
+
+Montoya                  Expires April 21, 2020                [Page 11]
+
+Internet-Draft                    xrel                      October 2019
+
 
 6.2.  Informative References
 
@@ -547,20 +647,9 @@ Internet-Draft                    xrel                      October 2019
 
    [1] RFC6901
 
-   [2] RFC6901
+   [2] https://github.com/phtal-org/internet-draft-xrel/issues
 
-   [3] https://github.com/phtal-org/internet-draft-xrel/issues
-
-   [4] https://phtal-org.github.io/internet-draft-xrel/
-
-
-
-
-
-Montoya                  Expires April 20, 2020                [Page 10]
-
-Internet-Draft                    xrel                      October 2019
-
+   [3] https://phtal-org.github.io/internet-draft-xrel/
 
 Author's Address
 
@@ -580,37 +669,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Montoya                  Expires April 20, 2020                [Page 11]
+Montoya                  Expires April 21, 2020                [Page 12]
