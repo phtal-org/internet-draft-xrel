@@ -17,14 +17,11 @@ author:
   email: jam01@protonmail.com
 
 normative:
-  RFC1738: # URL
   RFC8259: # JSON
   RFC6901: # JSON Pointer
-  RFC3986: # URI Generic Syntax
-  RFC7320: # URI Design and Ownership
   W3C.yaml:
     target: http://www.yaml.org/spec/1.2/spec.html
-    title: YAML Aint Markup Languages
+    title: YAML Aint Markup Language
     author:
     - name: Oren Ben-Kiki
       ins: Ben Kiki, O.
@@ -40,7 +37,6 @@ normative:
       name: John McFarlane
 
 informative:
-  RFC8288: # Web Linking
   REST:
     target: http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf
     title: Architectural Styles and the Design of Network-based Software Architectures
@@ -88,7 +84,7 @@ This document registers a media-type identifier with the IANA: `application/xrel
 
 ### General
 
-Representational State Transfer, or **REST**, is an architectural style for distributed hypermedia systems. Introduced and first defined in 2000 in Chapter 5, REST, of the doctoral dissertation "Architectural Styles and the Design of Network-based Software Architecture" by Roy Fielding.
+Representational State Transfer, or [REST](#REST), is an architectural style for distributed hypermedia systems. Introduced and first defined in 2000 in Chapter 5, REST, of the doctoral dissertation "Architectural Styles and the Design of Network-based Software Architecture" by Roy Fielding.
 
 **Hypermedia**, or hypertext, is defined by the presence of application control information embedded within, or as a layer above, the presentation of information. Hypermedia allows for a virtually unbound network of resources while also guiding users through an application as they navigate said relationships.
 
@@ -147,12 +143,14 @@ Type | Description
 #### Examples
 
 ~~~ yaml
-description: Refers to an event scheduling service resource related to the context resource.
+description: Refers to an event scheduling service resource related to
+  the context resource.
 ~~~
 
 ~~~ json
 {
-  "description": "Refers to an event scheduling service resource related to the context resource."
+  "description": "Refers to an event scheduling service resource
+    related to the context resource."
 }
 ~~~
 
@@ -166,18 +164,22 @@ Map[`string`, [Relationship Object](#relationship-object)] | A map where the key
 
 ~~~ yaml
 scheduling-service:
-  description: Refers to an event scheduling service resource related to the context resource.
+  description: Refers to an event scheduling service resource related
+    to the context resource.
 patient:
-  description: Refers to a patient resource related to the context resource.
+  description: Refers to a patient resource related to the context
+    resource.
 ~~~
 
 ~~~ json
 {
   "scheduling-service": {
-    "description": "Refers to an event scheduling service resource related to the context resource."
+    "description": "Refers to an event scheduling service resource
+      related to the context resource."
   },
   "patient": {
-    "description": "Refers to a patient resource related to the context resource."
+    "description": "Refers to a patient resource related to the context
+      resource."
   }
 }
 ~~~
@@ -197,6 +199,9 @@ When applied to an XREL document, a URI fragment identifier MUST be a [JSON Poin
 In the case of XREL Documents as specified in Section 2.3, the URL that identifies that document also identifies the hypermedia relationship described in that document. For example, if the document example in Section 2.3.1 is served at **http://docs.example.org/xrels/sheduling-service** then this URL is the identifier for the relationship described in that document.
 
 In the case of XREL Collection Documents as specified in Section 2.4, fragment identifiers MUST be used for the relationships objects described in that document. For example, if the document example in Section 2.4.1 is served at **http://docs.example.org/xrels/clinical** then **http://docs.example.org/xrels/clinical#/sheduling-service** and **http://docs.example.org/xrels/clinical#/patient** identify the first and second Relationship Objects, respectively.
+
+# Security Considerations
+This document registers two media types in the following section, IANA Considerations. See the Security Considerations for each type in that section.
 
 # IANA Considerations
 
